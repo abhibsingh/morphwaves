@@ -506,3 +506,17 @@ html:not(.js) .orbit-chips, html:not(.js) .orbit-progress { display: none; }
 .page-head-illus-wide { width: clamp(320px, 42vw, 580px); }
 .illus-mob { display: none; }
 @media (max-width: 599px) { .illus-desk { display: none; } .illus-mob { display: block; max-width: 340px; } }
+
+/* ---------- Page head photos (NASA, public domain) ---------- */
+.page-head-has-photo .wrap { align-items: center; padding-block: clamp(2.5rem, 2rem + 3vw, 4.5rem); gap: clamp(2rem, 5vw, 5rem); }
+.page-head-photo { margin: 0; width: clamp(280px, 34vw, 440px); }
+.page-head-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-lg); border: 1px solid var(--line-dark); background: var(--midnight); }
+.page-head-photo figcaption { margin-top: .75rem; font-size: var(--t-sm); line-height: 1.45; color: var(--on-dark-2); max-width: 34em; }
+.photo-credit { color: #7d8ea3; white-space: nowrap; }
+@media (max-width: 899px) {
+  .page-head-photo { width: 100%; max-width: 560px; }
+  .page-head-photo img { aspect-ratio: 4 / 3; }
+}
+.chain-figure { margin: 0; border-radius: var(--radius-lg); padding: clamp(1.25rem, 3vw, 2.5rem); border: 1px solid var(--line-dark); }
+.chain-figure .illus-desk { max-width: 760px; margin-inline: auto; }
+.chain-figure .illus-mob { margin-inline: auto; }
