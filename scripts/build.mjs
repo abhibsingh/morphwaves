@@ -151,6 +151,8 @@ function buildPage(file) {
     nav: navHtml(meta.nav || meta.path),
     skyplot: skyplot(),
     groundopsDiagram: read(join(SITE, "partials", "groundops-diagram.svg")),
+    ...Object.fromEntries(readdirSync(join(SITE, "partials")).filter((n) => /^illus-[\w]+\.svg$/.test(n))
+      .map((n) => ["illus_" + n.slice(6, -4), read(join(SITE, "partials", n))])),
     extraScripts: (meta.scripts || []).map((s) => `<script src="${s}" defer></script>`).join(""),
   };
   const head = fill(partial("head"), vars);

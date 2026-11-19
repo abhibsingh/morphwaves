@@ -482,3 +482,27 @@ html:not(.js) .orbit-chips, html:not(.js) .orbit-progress { display: none; }
   .no-webgl .orbit-canvas { background: url("/assets/img/earth/orbit-poster.jpg") center / cover no-repeat; opacity: 1; }
   .no-webgl { background: var(--navy); }
 }
+
+/* ---------- Page illustrations ---------- */
+.illus { width: 100%; height: auto; overflow: visible; }
+.illus .il-label { font-family: var(--font); font-size: 11px; font-weight: 500; fill: var(--on-dark-2); }
+.illus .il-strong { fill: var(--on-dark); font-weight: 600; }
+.illus .il-pulse { stroke-dasharray: 3 21; animation: il-pulse 1.8s linear infinite; }
+.illus .il-scan { transform-box: fill-box; transform-origin: center; animation: il-scan 2.4s ease-in-out infinite; }
+.illus .il-d1 { animation-delay: -.3s; } .illus .il-d2 { animation-delay: -.6s; } .illus .il-d3 { animation-delay: -.9s; }
+.illus .il-d4 { animation-delay: -1.2s; } .illus .il-d5 { animation-delay: -1.5s; }
+@keyframes il-pulse { to { stroke-dashoffset: -24; } }
+@keyframes il-scan { 50% { opacity: .05; transform: scale(1.12); } }
+@media (prefers-reduced-motion: reduce) { .illus .il-pulse { animation: none; stroke-dasharray: none; opacity: .5; } .illus .il-scan { animation: none; } }
+.page-head-illus { margin: 0; width: clamp(300px, 36vw, 500px); align-self: center; }
+.page-head-illus figcaption { margin-top: .75rem; font-size: var(--t-sm); color: var(--on-dark-2); max-width: 30em; }
+@media (max-width: 899px) {
+  .page-head .wrap { grid-template-columns: 1fr; }
+  .page-head-illus { width: 100%; max-width: 460px; margin-top: .5rem; }
+}
+.page-head-has-illus .wrap { align-items: center; padding-block: clamp(3rem, 2rem + 4vw, 5rem); }
+.error-has-illus .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: center; }
+@media (max-width: 899px) { .error-has-illus .wrap { grid-template-columns: 1fr; } }
+.page-head-illus-wide { width: clamp(320px, 42vw, 580px); }
+.illus-mob { display: none; }
+@media (max-width: 599px) { .illus-desk { display: none; } .illus-mob { display: block; max-width: 340px; } }
