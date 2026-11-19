@@ -1,0 +1,79 @@
+<!-- {
+  "title": "GroundOps | A proposed Morphwaves product concept",
+  "description": "Morphwaves GroundOps is a product concept under development: one environment for pass planning, station health, telemetry validation, alerts, API integrations and automated testing.",
+  "path": "/groundops/"
+} -->
+<section class="page-head surface-dark" aria-labelledby="page-title">
+  <div class="wrap">
+    <div>
+      <span class="crumb">Morphwaves GroundOps, proposed product</span>
+      <h1 id="page-title">Ground Operations, Engineered for Clarity.</h1>
+      <p class="lede">GroundOps is our concept for a single operating environment for ground station teams. It is under exploration and early development, and we are looking for operators to help shape it.</p>
+      <div class="notice mt-2" role="note">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v5M10 6.2v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <p><strong>Product concept.</strong> GroundOps is not commercially available, there is no live demo, and it cannot be purchased today. This page describes intended scope.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white" aria-labelledby="problem-title">
+  <div class="wrap split">
+    <div><h2 id="problem-title">The problem it addresses</h2></div>
+    <div class="prose">
+      <p class="strong">During a pass, an operator may watch a scheduler, an antenna controller, a modem interface, a telemetry display and a chat channel at once. Problems show up in one place while their causes sit in another.</p>
+      <p>GroundOps is intended to bring those signals together: what is scheduled, what each station is doing, whether the arriving data is sound, and what needs attention. It would integrate with the tools teams already use rather than replace them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="arch-heading">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="arch-heading">How it would fit</h2>
+      <p class="lede">GroundOps would sit between station equipment and the systems your team runs today, connecting through adapters on one side and APIs on the other.</p>
+    </div>
+    <figure class="diagram">
+      <p class="scroll-hint">Scroll sideways to see the full diagram.</p>
+      <div class="diagram-scroll" tabindex="0" aria-label="GroundOps concept diagram, scrollable">
+        {{groundopsDiagram}}
+      </div>
+      <figcaption><span><strong>Concept diagram.</strong> Illustrates intended architecture, not a working system or product interface.</span><span>Module names may change as we validate with operators.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section section-white" aria-labelledby="scope-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="scope-title">Intended scope</h2>
+      <p class="lede">Six areas we are designing around. Each will be validated with operators before it is built in full.</p>
+    </div>
+    <ul class="cap-items cap-items-3">
+      <li><h3>Satellite visibility and pass planning</h3><p>Upcoming passes per station, with elevation, duration and conflicts across antennas, calculated from current orbital elements.</p></li>
+      <li><h3>Station health monitoring</h3><p>Status of antennas, RF chain, modems and servers in one view, with history so trends are visible before they become faults.</p></li>
+      <li><h3>Telemetry validation</h3><p>Checks that frames arrive complete and in sequence, and that values sit within expected limits for each pass.</p></li>
+      <li><h3>Alerts and diagnostics</h3><p>Alerts raised with context: which pass, which component, what changed, and what usually resolves it.</p></li>
+      <li><h3>API integrations</h3><p>Documented interfaces to scheduling, mission control and data systems, plus webhooks for alerting tools.</p></li>
+      <li><h3>Automated operational testing</h3><p>Scripted pre pass and post pass checks that confirm a station is ready and that each contact delivered what it should.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="partner-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="partner-title">Help shape GroundOps</h2>
+      <p class="lede">We are looking for a small number of design partners: teams willing to share how their operations work today and test early prototypes against real passes.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Walk us through a pass</h3><p>A working session on your current tools, handovers and the failures that cost you the most time.</p></li>
+      <li><h3>Agree a narrow pilot</h3><p>Pick one station and one problem, such as pre pass readiness or telemetry gaps, with a clear measure of success.</p></li>
+      <li><h3>Build and review together</h3><p>Short iterations against your environment, with your operators deciding what is useful.</p></li>
+    </ol>
+    <div class="btn-row mt-3">
+      <a class="btn btn-dark" href="/contact/?interest=pilot">Become a design partner</a>
+      <a class="btn btn-outline" href="/partnerships/">Other ways to collaborate</a>
+    </div>
+  </div>
+</section>

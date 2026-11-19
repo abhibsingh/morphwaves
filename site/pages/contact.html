@@ -1,0 +1,77 @@
+<!-- {
+  "title": "Contact Morphwaves",
+  "description": "Contact Morphwaves about partnerships, technical collaboration and pilot opportunities in satellite ground operations software. Email Abhishek@morphwaves.in.",
+  "path": "/contact/",
+  "priority": "0.9",
+  "scripts": ["/assets/js/contact.js"]
+} -->
+<section class="page-head surface-dark" aria-labelledby="page-title">
+  <div class="wrap">
+    <div>
+      <span class="crumb">Contact</span>
+      <h1 id="page-title">Start a conversation with Morphwaves.</h1>
+      <p class="lede">Partnerships, technical collaboration, pilots or a general question. Write directly or use the form below.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Contact details and form">
+  <div class="wrap contact-layout">
+    <aside class="contact-aside" aria-labelledby="direct-title">
+      <h2 id="direct-title">Email directly</h2>
+      <a class="email-link" href="mailto:{{email}}">{{email}}</a>
+      <p class="muted">Messages go to the founder. Including your organisation and what you are working on helps us reply usefully.</p>
+      <dl>
+        <div><dt>Partnership inquiries</dt><dd>Operators, providers, manufacturers and integrators.</dd></div>
+        <div><dt>Technical collaboration</dt><dd>Integration, automation, research and shared tooling.</dd></div>
+        <div><dt>Pilot opportunities</dt><dd>Design partners for the GroundOps concept.</dd></div>
+      </dl>
+    </aside>
+
+    <div class="form-card">
+      <form id="contact-form" name="contact" method="POST" action="/contact/thanks/" data-netlify="true" netlify-honeypot="company_website" novalidate aria-describedby="form-note">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hp" aria-hidden="true"><label>Leave this field empty <input name="company_website" tabindex="-1" autocomplete="off"></label></p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="e-name">
+            <span class="field-error" id="e-name" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="f-org">Organisation</label>
+            <input id="f-org" name="organisation" type="text" autocomplete="organization" required maxlength="160" aria-describedby="e-org">
+            <span class="field-error" id="e-org" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="f-email">Professional email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="200" aria-describedby="h-email e-email">
+            <span class="hint" id="h-email">We reply to this address.</span>
+            <span class="field-error" id="e-email" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="f-interest">Area of interest <span class="opt">(optional)</span></label>
+            <select id="f-interest" name="interest">
+              <option value="">Choose one</option>
+              <option value="partnership">Partnership inquiry</option>
+              <option value="technical">Technical collaboration</option>
+              <option value="pilot">Pilot opportunity</option>
+              <option value="general">General inquiry</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="f-message">Message</label>
+            <textarea id="f-message" name="message" required minlength="20" maxlength="5000" aria-describedby="h-message e-message"></textarea>
+            <span class="hint" id="h-message">A few lines on what you are working on and how we might help.</span>
+            <span class="field-error" id="e-message" aria-live="polite"></span>
+          </div>
+        </div>
+        <div class="form-foot">
+          <p class="small" id="form-note">Your details are used only to reply to your message.</p>
+          <button class="btn btn-dark" type="submit"><span class="spinner" aria-hidden="true"></span><span class="btn-label">Send message</span></button>
+        </div>
+        <div class="form-status" id="form-status" role="status" tabindex="-1"></div>
+      </form>
+    </div>
+  </div>
+</section>

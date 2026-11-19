@@ -1,3 +1,35 @@
+# Morphwaves on Netlify
+# Public site:   built from site/ into dist/ by scripts/build.mjs (no dependencies)
+# Legacy site:   legacy-site/ copied to dist/legacy/, served only after
+#                netlify/edge-functions/legacy-auth.js checks credentials.
+#                Set LEGACY_USERNAME and LEGACY_PASSWORD in the Netlify UI.
+
 [build]
-  publish = "."
-  command = ""
+  command = "node scripts/build.mjs"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# The original site had a single route (/), so no redirects are needed.
+# Canonical host: set www.morphwaves.com as the primary domain in
+# Netlify > Domain management. Netlify then 301s the apex to www itself.

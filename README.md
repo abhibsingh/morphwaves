@@ -1,18 +1,39 @@
 # Morphwaves website
 
-This repository contains the prebuilt static website downloaded from Netlify, not the original Next.js source project.
+Public site for Morphwaves, an early stage venture developing software for satellite ground operations. The original MorphWave acoustic site is preserved untouched and served privately at `/legacy/` behind server side authentication.
 
-The footer address and mailto link have been updated to Abhishek@Morphwaves.in in both index.html and the application JavaScript chunk.
+## Layout
 
-## Deploy using GitHub and the existing Netlify project
+| Path | What it is |
+|---|---|
+| `site/` | Source of the new public site: pages, shared partials, CSS, JS, fonts, images |
+| `scripts/build.mjs` | Builds `dist/`. No dependencies, Node 18 or later |
+| `scripts/serve.mjs` | Local preview that behaves like Netlify, including the legacy lock |
+| `legacy-site/` | Byte identical copy of the original site. Never edited by the build |
+| `netlify/edge-functions/legacy-auth.js` | Basic Auth gate for every `/legacy` request |
+| `netlify.toml` | Build command, publish folder, security headers |
+| `tests/` | Unit tests for the auth gate and browser tests for the whole site |
+| `docs/OWNER_GUIDE.md` | Private access, rollback, deployment and audit notes |
 
-1. Upload all contents of this folder to the root of a GitHub repository. Include the _next directory. Upload extracted files, not the ZIP.
-2. In the existing morphwave Netlify project, open Project configuration > Build & deploy > Continuous deployment and link the GitHub repository.
-3. Select the repository branch. Leave the build command empty and set the publish directory to a single dot (.). No npm build is required for these prebuilt files.
-4. Deploy and verify the footer text and email link on morphwaves.com.
+## Preview locally
 
-Keep the existing Netlify project to preserve its domain configuration. Future pushes to the linked branch trigger deployment.
+```sh
+node scripts/build.mjs
+LEGACY_USERNAME=owner LEGACY_PASSWORD='pick-a-long-random-value' node scripts/serve.mjs 8888
+# open http://localhost:8888  and  http://localhost:8888/legacy/
+```
 
-For substantial development, recover the original Next.js source. Editing these generated files does not update that source; rebuilding from an older source could restore the old address.
+The contact form shows an error locally because Netlify Forms exists only on Netlify. That is intended: the form never reports success unless the server accepted the message.
 
-Netlify documentation: https://docs.netlify.com/build/configure-builds/overview/
+## Test
+
+```sh
+node --test tests/*.test.mjs                       # auth gate unit tests
+pip install playwright && python3 tests/e2e.py     # browser tests, needs the preview running
+```
+
+## Editing pages
+
+Each page in `site/pages/` starts with a JSON comment holding its title, meta description and path. Header, footer and head tags live once in `site/partials/` and apply to every page. Design tokens are at the top of `site/assets/css/site.css`.
+
+See `docs/OWNER_GUIDE.md` before deploying.
