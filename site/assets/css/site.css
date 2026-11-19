@@ -441,3 +441,44 @@ h4 { font-size: var(--t-base); font-weight: 600; letter-spacing: 0; }
 .cap-items-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 899px) { .cap-items-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 599px) { .cap-items-3 { grid-template-columns: 1fr; } }
+
+/* ---------- Orbit hero ---------- */
+.hero-orbit { position: relative; isolation: isolate; background: radial-gradient(120% 90% at 75% 45%, #0d2036 0%, var(--navy) 60%); }
+.hero-orbit .orbit-canvas { position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity 1.2s var(--ease); }
+.hero-orbit .orbit-canvas.is-ready { opacity: 1; }
+.hero-orbit .orbit-canvas canvas { width: 100% !important; height: 100% !important; display: block; }
+.hero-orbit::after { /* keeps the copy legible over the globe */
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(8,22,38,.92) 0%, rgba(8,22,38,.72) 34%, rgba(8,22,38,0) 58%);
+}
+.hero-orbit-inner { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: min(820px, calc(100svh - var(--header-h))); align-items: center; padding-block: clamp(3rem, 6vw, 5.5rem) !important; }
+.hero-copy { max-width: 36rem; position: relative; }
+.orbit-panel { margin: 0; align-self: end; justify-self: end; width: min(100%, 25rem); background: rgba(16,36,58,.72); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid var(--line-dark); border-radius: var(--radius-lg); padding: 1rem 1.1rem 1.1rem; }
+.orbit-chips { display: flex; gap: .35rem; align-items: center; }
+.orbit-chips button { font: inherit; font-size: .8125rem; font-weight: 600; color: var(--on-dark-2); background: transparent; border: 1px solid var(--line-dark); border-radius: 99px; padding: .35rem .75rem; min-height: 32px; cursor: pointer; }
+.orbit-chips button:hover { color: var(--white); border-color: #3c5876; }
+.orbit-chips button[aria-pressed="true"] { color: var(--navy); background: var(--cyan); border-color: var(--cyan); }
+.orbit-chips .orbit-replay { margin-left: auto; padding: .35rem .5rem; display: inline-grid; place-items: center; }
+.orbit-progress { height: 2px; background: var(--line-dark); border-radius: 2px; margin: .85rem 0 .9rem; overflow: hidden; }
+.orbit-progress-bar { display: block; height: 100%; width: 100%; background: var(--cyan); transform-origin: left; transform: scaleX(0); animation: orbit-progress 11.1s linear forwards; }
+.is-manual .orbit-progress-bar, [data-orbit-stage="all"] .orbit-progress-bar { animation: none; transform: scaleX(1); }
+@keyframes orbit-progress { to { transform: scaleX(1); } }
+.orbit-panel figcaption { display: grid; gap: .3rem; }
+.orbit-alt { font-size: .8125rem; color: #7FDCEC; font-weight: 500; }
+.orbit-title { font-size: 1.125rem; font-weight: 600; color: var(--white); letter-spacing: -.01em; }
+.orbit-text { font-size: .9063rem; color: var(--on-dark-2); line-height: 1.5; min-height: 4.1em; }
+.orbit-note { font-size: .75rem; color: #7d8ea3; margin-top: .35rem; }
+.no-webgl .orbit-chips, .no-webgl .orbit-progress { display: none; }
+.no-webgl { background: var(--navy) url("/assets/img/earth/orbit-poster.jpg") center / cover no-repeat; }
+html:not(.js) .orbit-chips, html:not(.js) .orbit-progress { display: none; }
+@media (prefers-reduced-motion: reduce) { .orbit-progress { display: none; } }
+@media (max-width: 899px) {
+  .hero-orbit { display: flex; flex-direction: column; padding-bottom: 2rem; }
+  .hero-orbit::after { display: none; }
+  .hero-orbit .wrap.hero-orbit-inner { display: contents !important; }
+  .hero-copy { order: 1; padding: 3rem var(--gutter) 0; max-width: none; }
+  .hero-orbit .orbit-canvas { order: 2; position: relative; inset: auto; z-index: 0; height: min(96vw, 460px); margin-top: 1rem; }
+  .orbit-panel { order: 3; margin: -1.5rem var(--gutter) 0; width: auto; justify-self: auto; align-self: auto; position: relative; z-index: 1; }
+  .no-webgl .orbit-canvas { background: url("/assets/img/earth/orbit-poster.jpg") center / cover no-repeat; opacity: 1; }
+  .no-webgl { background: var(--navy); }
+}

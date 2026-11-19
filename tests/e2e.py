@@ -14,7 +14,7 @@ def check(name, ok, detail=""):
 
 async def main():
     async with async_playwright() as p:
-        b = await p.chromium.launch(executable_path=CHROME, args=["--no-sandbox"])
+        b = await p.chromium.launch(executable_path=CHROME, args=["--no-sandbox", "--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"])
         pg = await b.new_page(viewport={"width": 1280, "height": 900})
 
         # Internal links all resolve
@@ -66,11 +66,25 @@ async def main():
         await m.keyboard.press("Escape")
         check("Escape closes menu and returns focus", not await m.is_visible("#site-nav") and await m.evaluate("document.activeElement.classList.contains('nav-toggle')"))
 
-        # Reduced motion: sky plot drawn immediately
+        # Orbit hero: stage controls switch the caption
+        await pg.goto(BASE + "/")
+        await pg.wait_for_timeout(2500)
+        fallback = await pg.evaluate("document.querySelector('[data-orbit-hero]').classList.contains('no-webgl')")
+        check("software graphics get the still poster", fallback)
+        await pg.goto(BASE + "/?scene=force")
+        await pg.wait_for_selector(".orbit-canvas.is-ready", timeout=20000)
+        check("orbit scene loads", True)
+        await pg.click('[data-stage="geo"]')
+        check("GEO control shows GEO caption", await pg.inner_text("[data-stage-title]") == "Geostationary orbit")
+        check("GEO control marked pressed", await pg.get_attribute('[data-stage="geo"]', "aria-pressed") == "true")
+        check("canvas hidden from screen readers", await pg.get_attribute(".orbit-canvas", "aria-hidden") == "true")
+
+        # Reduced motion: no tour, final view shown at once
         rm = await b.new_page(viewport={"width": 1280, "height": 900}, reduced_motion="reduce")
-        await rm.goto(BASE + "/")
-        op = await rm.evaluate("getComputedStyle(document.querySelector('.sp-sat-g')).opacity")
-        check("reduced motion shows final sky plot state", op == "1", op)
+        await rm.goto(BASE + "/?scene=force")
+        await rm.wait_for_selector(".orbit-canvas.is-ready", timeout=20000)
+        st = await rm.evaluate("document.querySelector('[data-orbit-hero]').dataset.orbitStage")
+        check("reduced motion shows the final all orbits view", st == "all", st)
 
         # 404
         r = await pg.goto(BASE + "/does-not-exist/")

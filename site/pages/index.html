@@ -4,9 +4,10 @@
   "path": "/",
   "priority": "1.0"
 } -->
-<section class="hero surface-dark" aria-labelledby="hero-title">
-  <div class="wrap">
-    <div>
+<section class="hero hero-orbit surface-dark" aria-labelledby="hero-title" data-orbit-hero data-orbit-stage="leo" data-module="/assets/js/orbit-scene.js">
+  <div class="orbit-canvas" aria-hidden="true"></div>
+  <div class="wrap hero-orbit-inner">
+    <div class="hero-copy">
       <p class="hero-status">Early stage venture, building in India</p>
       <h1 id="hero-title">Engineering the Next Generation of Satellite Ground Operations.</h1>
       <p class="lede">Morphwaves is an emerging technology venture focused on intelligent ground segment software, satellite operations automation, and the future of connected space infrastructure.</p>
@@ -15,9 +16,21 @@
         <a class="btn btn-ghost" href="/partnerships/">Discuss a Partnership</a>
       </div>
     </div>
-    <figure class="skyplot-figure">
-      {{skyplot}}
-      <figcaption class="skyplot-caption">A sky plot, the view a ground station operator uses to follow a satellite from acquisition to loss of signal. Pass geometry shown is illustrative.</figcaption>
+    <figure class="orbit-panel">
+      <div class="orbit-chips" role="group" aria-label="Choose an orbit to view">
+        <button type="button" data-stage="leo" aria-pressed="true">LEO</button>
+        <button type="button" data-stage="meo" aria-pressed="false">MEO</button>
+        <button type="button" data-stage="geo" aria-pressed="false">GEO</button>
+        <button type="button" data-stage="all" aria-pressed="false">All</button>
+        <button type="button" class="orbit-replay" data-replay aria-label="Replay the orbit tour"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" aria-hidden="true"><path d="M2.5 8a5.5 5.5 0 1 0 1.7-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M2.5 2.5v3h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="orbit-progress" aria-hidden="true"><span class="orbit-progress-bar"></span></div>
+      <figcaption>
+        <span class="orbit-alt" data-stage-alt>Up to 2,000 km</span>
+        <strong class="orbit-title" data-stage-title>Low Earth orbit</strong>
+        <span class="orbit-text" data-stage-text>A satellite circles Earth in about 90 to 120 minutes, so each ground station sees it for only a few minutes per pass.</span>
+        <span class="orbit-note">Orbits not to scale. Earth imagery: NASA.</span>
+      </figcaption>
     </figure>
   </div>
 </section>
