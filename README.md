@@ -40,6 +40,10 @@ The homepage hero is a live 3D scene: a rotating Earth with satellites in low, m
 * Earth imagery in `site/assets/img/earth/` is NASA Blue Marble and Black Marble, which are public domain.
 * It loads after the page finishes loading, pauses when off screen, shows a still view for visitors who reduce motion, and shows `orbit-poster.jpg` on devices without hardware graphics. Add `?scene=force` to the URL to force the live scene, for example in headless testing.
 
+## Page photos
+
+Page head photos in `site/assets/img/photos/` are NASA Deep Space Network photographs from nasa.gov (public domain), credited in each caption: DSS-14 and the 70 m antenna at Goldstone, DSS-15 at Goldstone, DSS-35 and DSS-43 at Canberra. `scripts/prepare-photos.py` crops them to 4:5 and writes 1200 and 720 pixel versions. NASA imagery does not imply NASA endorsement.
+
 ## Editing pages
 
 Each page in `site/pages/` starts with a JSON comment holding its title, meta description and path. Header, footer and head tags live once in `site/partials/` and apply to every page. Design tokens are at the top of `site/assets/css/site.css`.
