@@ -28,3 +28,18 @@
   });
   mq.addEventListener("change", () => set(false));
 })();
+
+// Loads the 3D orbit hero only after the page has finished loading, so the
+// headline and text paint first on slow connections.
+(() => {
+  const hero = document.querySelector("[data-orbit-hero][data-module]");
+  if (!hero) return;
+  const inject = () => {
+    const s = document.createElement("script");
+    s.type = "module"; s.src = hero.dataset.module;
+    s.onerror = () => hero.classList.add("no-webgl");
+    document.head.appendChild(s);
+  };
+  const later = () => ("requestIdleCallback" in window ? requestIdleCallback(inject, { timeout: 1200 }) : setTimeout(inject, 150));
+  if (document.readyState === "complete") later(); else window.addEventListener("load", later, { once: true });
+})();
