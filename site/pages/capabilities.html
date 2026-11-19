@@ -1,0 +1,95 @@
+<!-- {
+  "title": "Capabilities | Morphwaves ground segment engineering",
+  "description": "Morphwaves capability areas: ground segment software, automation and reliability, intelligent space operations, and infrastructure and integration, each marked by maturity.",
+  "path": "/capabilities/"
+} -->
+<section class="page-head surface-dark" aria-labelledby="page-title">
+  <div class="wrap">
+    <div>
+      <span class="crumb">Technology and capabilities</span>
+      <h1 id="page-title">Four capability areas, clearly marked by maturity.</h1>
+      <p class="lede">Some of this is engineering work we can take on now. Some is in development. Some is a long term ambition. Each item says which.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Capability areas">
+  <div class="wrap">
+    <dl class="status-key" aria-label="Status key">
+      <div><dt><span class="status status-now">Current capability</span></dt><dd>Engineering work we can take on today</dd></div>
+      <div><dt><span class="status status-dev">In development</span></dt><dd>Concepts and prototypes we are building</dd></div>
+      <div><dt><span class="status status-later">Long term</span></dt><dd>Ambitions that need partners and authorisation</dd></div>
+    </dl>
+
+    <div class="cap-list mt-3">
+      <article class="cap" id="ground-segment-software" aria-labelledby="cap1">
+        <div class="cap-intro">
+          <svg class="focus-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="4.75" y="7.75" width="30.5" height="22.5" rx="2.25" stroke="currentColor" stroke-width="1.5"/><path d="M9 25c4.5-8.5 13.5-12 22-11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 3"/><circle cx="21" cy="15.6" r="2" fill="currentColor"/><path d="M14 34.25h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <h2 id="cap1">Ground segment software</h2>
+          <p>Software that gives station teams one clear view of upcoming passes, live station state and the data each contact produced.</p>
+        </div>
+        <ul class="cap-items">
+          <li><h3>Satellite pass scheduling concepts</h3><p>Pass prediction from orbital elements, conflict detection across antennas and priority rules for contention.</p><span class="status status-dev">In development</span></li>
+          <li><h3>Operational dashboards</h3><p>Station health, pass timelines and alerts in a single view, designed for the operations room.</p><span class="status status-dev">In development</span></li>
+          <li><h3>API driven integration</h3><p>Documented REST interfaces and adapters for scheduling tools, mission control and data pipelines.</p><span class="status status-now">Current capability</span></li>
+          <li><h3>Telemetry ingestion and monitoring</h3><p>Ingesting telemetry frames, checking them against expected limits and flagging gaps or corruption.</p><span class="status status-dev">In development</span></li>
+        </ul>
+      </article>
+
+      <article class="cap" id="automation-reliability" aria-labelledby="cap2">
+        <div class="cap-intro">
+          <svg class="focus-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M31 15.5A12 12 0 0 0 9.3 13M9 24.5A12 12 0 0 0 30.7 27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8.5 7.5v5.8h5.8M31.5 32.5v-5.8h-5.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.5 20l3 3 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h2 id="cap2">Automation and reliability</h2>
+          <p>The engineering discipline that keeps complex systems honest: automated checks, visibility and fast detection when something changes.</p>
+        </div>
+        <ul class="cap-items">
+          <li><h3>Automated testing and validation</h3><p>Test suites for APIs, data flows and integrations that run on every change and before every release.</p><span class="status status-now">Current capability</span></li>
+          <li><h3>System observability</h3><p>Structured logging, metrics and tracing so teams can answer what happened, where and when.</p><span class="status status-now">Current capability</span></li>
+          <li><h3>Incident detection</h3><p>Rules and health checks that surface failures quickly, with the context needed to respond.</p><span class="status status-now">Current capability</span></li>
+          <li><h3>Operational workflow automation</h3><p>Replacing repetitive manual steps, such as pre pass checks and post pass reports, with reliable scripted workflows.</p><span class="status status-dev">In development</span></li>
+        </ul>
+      </article>
+
+      <article class="cap" id="intelligent-operations" aria-labelledby="cap3">
+        <div class="cap-intro">
+          <svg class="focus-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M4 26h5l3.5-9 4 14 4.5-20 3.5 15H36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="11" r="3.25" stroke="currentColor" stroke-width="1.5"/></svg>
+          <h2 id="cap3">Intelligent space operations</h2>
+          <p>Applied AI for the questions operators actually ask: is this normal, what changed, and what is likely to fail next.</p>
+        </div>
+        <ul class="cap-items">
+          <li><h3>AI assisted anomaly analysis</h3><p>Models that learn the normal behaviour of station and telemetry signals and highlight departures from it.</p><span class="status status-dev">In development</span></li>
+          <li><h3>Data processing</h3><p>Pipelines that clean, validate and structure telemetry and station logs for analysis.</p><span class="status status-now">Current capability</span></li>
+          <li><h3>Predictive diagnostics</h3><p>Early warning of degrading components from trends in signal quality, temperatures and error rates.</p><span class="status status-later">Long term</span></li>
+          <li><h3>Engineering workflow optimisation</h3><p>Using AI to speed up test creation, log review and root cause analysis for engineering teams.</p><span class="status status-dev">In development</span></li>
+        </ul>
+      </article>
+
+      <article class="cap" id="infrastructure-integration" aria-labelledby="cap4">
+        <div class="cap-intro">
+          <svg class="focus-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M9.5 9.5a14 14 0 0 0 19.8 19.8L9.5 9.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.4 19.4l7.4-7.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="28.3" cy="10.5" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M17 35h12M23 29.5V35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <h2 id="cap4">Infrastructure and integration</h2>
+          <p>Connecting software to the physical ground segment, and preparing carefully for a future role in ground infrastructure.</p>
+        </div>
+        <ul class="cap-items">
+          <li><h3>Ground station connectivity</h3><p>Secure, monitored links between stations, cloud services and mission operations centres.</p><span class="status status-dev">In development</span></li>
+          <li><h3>Hardware and software integration</h3><p>Integrating control software with antennas, modems and RF equipment through vendor interfaces.</p><span class="status status-dev">Seeking pilot partners</span></li>
+          <li><h3>Technical feasibility studies</h3><p>Structured assessments of integration options, automation potential and risk for a specific station or network.</p><span class="status status-now">Current capability</span></li>
+          <li><h3>Commercial infrastructure partnerships</h3><p>Exploring Ground Station as a Service and shared ground capacity with authorised operators.</p><span class="status status-later">Long term</span></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band surface-dark" aria-labelledby="band-title">
+  <div class="wrap">
+    <div>
+      <h2 id="band-title">Have a problem that fits one of these areas?</h2>
+      <p class="lede">A short description of your station, your systems and what is slowing you down is enough to start.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/contact/">Start a Conversation</a>
+      <a class="btn btn-ghost" href="/groundops/">See the GroundOps concept</a>
+    </div>
+  </div>
+</section>
