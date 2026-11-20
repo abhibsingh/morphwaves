@@ -134,6 +134,34 @@ function fill(tpl, vars) {
 
 const escAttr = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
+// ---------- Structured data (JSON-LD data blocks are not executed, so CSP is unaffected) ----------
+const ORG = {
+  "@type": "Organization",
+  "@id": ORIGIN + "/#org",
+  name: "Morphwaves",
+  url: ORIGIN + "/",
+  logo: ORIGIN + "/assets/img/apple-touch-icon.png",
+  email: EMAIL,
+  description: "Early stage Indian venture developing software for satellite ground operations: monitoring, integration and automation.",
+  address: { "@type": "PostalAddress", addressCountry: "IN" },
+  founder: { "@type": "Person", name: "Abhishek Singh", jobTitle: "Founder", sameAs: ["https://www.linkedin.com/in/abhishek-s-473a27372"] },
+  knowsAbout: ["Satellite ground segment software", "Ground station automation", "Telemetry monitoring", "Satellite pass scheduling"],
+};
+function jsonLd(meta, canonical) {
+  const graph = [];
+  if (meta.path === "/") graph.push(ORG, { "@type": "WebSite", "@id": ORIGIN + "/#site", url: ORIGIN + "/", name: "Morphwaves", publisher: { "@id": ORIGIN + "/#org" }, inLanguage: "en-IN" });
+  if (meta.faq) graph.push({ "@type": "FAQPage", mainEntity: meta.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) });
+  if (!graph.length || meta.noindex) return "";
+  const json = JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c");
+  return `<script type="application/ld+json">${json}</script>`;
+}
+
+// FAQ markup rendered from the same front matter that feeds the FAQPage data, so they never drift apart.
+function faqHtml(meta) {
+  if (!meta.faq) return "";
+  return `<div class="faq">` + meta.faq.map(([q, a]) => `<details class="faq-item"><summary><h3>${q}</h3><span class="faq-icon" aria-hidden="true"></span></summary><p>${a}</p></details>`).join("") + `</div>`;
+}
+
 function buildPage(file) {
   const { meta, body } = parsePage(file);
   const canonical = ORIGIN + meta.path;
@@ -143,13 +171,17 @@ function buildPage(file) {
     canonical,
     path: meta.path,
     robots: meta.noindex ? "noindex, follow" : "index, follow",
-    ogImage: ORIGIN + "/assets/img/og-morphwaves.png",
+    ogImage: ORIGIN + (meta.og && existsSync(join(SITE, "assets", "img", "og", meta.og + ".jpg"))
+      ? `/assets/img/og/${meta.og}.jpg` : "/assets/img/og-morphwaves.png"),
+    jsonld: jsonLd(meta, canonical),
     year: YEAR,
     email: EMAIL,
     boot: BOOT,
     bootHash: BOOT_HASH,
     nav: navHtml(meta.nav || meta.path),
     skyplot: skyplot(),
+    faq: faqHtml(meta),
+    linkedin: "https://www.linkedin.com/in/abhishek-s-473a27372",
     groundopsDiagram: read(join(SITE, "partials", "groundops-diagram.svg")),
     ...Object.fromEntries(readdirSync(join(SITE, "partials")).filter((n) => /^illus-[\w]+\.svg$/.test(n))
       .map((n) => ["illus_" + n.slice(6, -4), read(join(SITE, "partials", n))])),

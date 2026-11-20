@@ -2,14 +2,15 @@
   "title": "Morphwaves | Software for satellite ground operations",
   "description": "Morphwaves is an early stage Indian venture developing ground segment software for satellite pass scheduling, station monitoring, telemetry validation and operations automation.",
   "path": "/",
-  "priority": "1.0"
+  "priority": "1.0",
+  "og": "home"
 } -->
 <section class="hero hero-orbit surface-dark" aria-labelledby="hero-title" data-orbit-hero data-orbit-stage="leo" data-module="/assets/js/orbit-scene.js">
   <div class="orbit-canvas" aria-hidden="true"></div>
   <div class="wrap hero-orbit-inner">
     <div class="hero-copy">
       <p class="hero-status">Early stage venture, building in India</p>
-      <h1 id="hero-title">Engineering the Next Generation of Satellite Ground Operations.</h1>
+      <h1 id="hero-title" data-blur-text>Engineering the Next Generation of Satellite Ground Operations.</h1>
       <p class="lede">Morphwaves is an emerging technology venture focused on intelligent ground segment software, satellite operations automation, and the future of connected space infrastructure.</p>
       <div class="btn-row">
         <a class="btn btn-primary" href="#focus">Explore Our Focus Areas</a>
@@ -51,46 +52,106 @@
   </div>
 </section>
 
-<section class="section" id="focus" aria-labelledby="focus-title">
+<section class="section caps surface-dark" id="focus" aria-labelledby="focus-title" data-reveal>
+  <svg class="holo-defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="holo-glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <radialGradient id="holo-orb"><stop offset="0" stop-color="#E9FBFF"/><stop offset=".35" stop-color="#5FDDF0"/><stop offset="1" stop-color="#16B8D4" stop-opacity="0"/></radialGradient>
+      <linearGradient id="holo-bar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7BE6F5"/><stop offset="1" stop-color="#16B8D4" stop-opacity=".08"/></linearGradient>
+    </defs>
+  </svg>
   <div class="wrap">
-    <div class="section-head">
-      <h2 id="focus-title">Four focus areas</h2>
-      <div>
-        <p class="lede">Each area carries a status, so you can see what we offer now, what we are building, and what we are working toward.</p>
-        <dl class="status-key mt-1" aria-label="Status key">
-          <div><dt><span class="status status-now">Current capability</span></dt><dd>Engineering work we can take on today</dd></div>
-          <div><dt><span class="status status-dev">In development</span></dt><dd>Concepts and prototypes we are building</dd></div>
-          <div><dt><span class="status status-later">Long term</span></dt><dd>Ambitions that need partners and authorisation</dd></div>
-        </dl>
-      </div>
+    <div class="caps-strip">
+      <span class="caps-strip-label"><span data-decrypt>What we work on</span><i aria-hidden="true"></i></span>
+      <dl class="status-key" aria-label="Status key">
+        <div><dt><span class="status status-now">Current capability</span></dt><dd class="visually-hidden">Engineering work we can take on today</dd></div>
+        <div><dt><span class="status status-dev">In development</span></dt><dd class="visually-hidden">Concepts and prototypes we are building</dd></div>
+        <div><dt><span class="status status-later">Long term</span></dt><dd class="visually-hidden">Ambitions that need partners and authorisation</dd></div>
+      </dl>
     </div>
-    <div class="focus-grid">
-      <article class="focus-item">
-        <svg class="focus-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="4.75" y="7.75" width="30.5" height="22.5" rx="2.25" stroke="currentColor" stroke-width="1.5"/><path d="M9 25c4.5-8.5 13.5-12 22-11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 3"/><circle cx="21" cy="15.6" r="2" fill="currentColor"/><path d="M14 34.25h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <div class="caps-head">
+      <h2 id="focus-title" class="caps-title"><span class="caps-mask"><span class="caps-glow">Four focus areas,</span></span> <span class="caps-mask"><span>from antenna to operations room.</span></span></h2>
+      <p class="lede">Each area carries a status, so you can see what we offer now, what we are building, and what we are working toward.</p>
+    </div>
+    <div class="caps-grid">
+      <article class="caps-card spot">
+        <div class="caps-stage" aria-hidden="true">
+          <svg class="holo holo-radar" viewBox="0 0 220 150" fill="none">
+            <g filter="url(#holo-glow)" stroke="#5FDDF0">
+              <ellipse cx="110" cy="84" rx="92" ry="34" stroke-width="1" opacity=".45"/>
+              <ellipse cx="110" cy="84" rx="66" ry="24" stroke-width="1.1" opacity=".7"/>
+              <ellipse cx="110" cy="84" rx="40" ry="14.5" stroke-width="1.2"/>
+              <path d="M18 84h184M110 50v68" stroke-width=".7" opacity=".35" stroke-dasharray="2 4"/>
+              <path class="holo-sweep" d="M110 84L176 67" stroke-width="1.4" opacity=".8"/>
+            </g>
+            <circle cx="110" cy="72" r="26" fill="url(#holo-orb)" opacity=".85"/>
+            <circle cx="110" cy="72" r="6" fill="#E9FBFF"/>
+            <circle class="holo-orbit" r="3.4" fill="#E9FBFF" filter="url(#holo-glow)"><animateMotion dur="9s" repeatCount="indefinite" path="M176 84a66 24 0 1 1 -132 0a66 24 0 1 1 132 0"/></circle>
+          </svg>
+        </div>
         <h3>Satellite ground segment software</h3>
         <p>Software for ground station monitoring, satellite pass scheduling, telemetry processing and operational visibility, built around open APIs.</p>
         <span class="status status-dev">In development</span>
       </article>
-      <article class="focus-item">
-        <svg class="focus-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M31 15.5A12 12 0 0 0 9.3 13M9 24.5A12 12 0 0 0 30.7 27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8.5 7.5v5.8h5.8M31.5 32.5v-5.8h-5.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.5 20l3 3 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <article class="caps-card spot">
+        <div class="caps-stage" aria-hidden="true">
+          <svg class="holo holo-sheets" viewBox="0 0 220 150" fill="none">
+            <g filter="url(#holo-glow)" stroke="#5FDDF0" stroke-width="1.1" stroke-linejoin="round">
+              <g class="holo-sheet holo-s1" opacity=".4"><path d="M56 40l84-14 22 76-84 14z" fill="#16B8D4" fill-opacity=".05"/></g>
+              <g class="holo-sheet holo-s2" opacity=".65"><path d="M66 50l84-14 22 76-84 14z" fill="#16B8D4" fill-opacity=".07"/><path d="M82 66l44-7M85 77l58-10M88 88l40-7" stroke-width=".9" opacity=".7"/></g>
+              <g class="holo-sheet holo-s3"><path d="M76 60l84-14 22 76-84 14z" fill="#16B8D4" fill-opacity=".1"/><path d="M92 76l50-8M95 87l56-9M98 98l34-6" stroke-width=".9"/><path d="M140 104l8 7 16-20" stroke="#E9FBFF" stroke-width="2.2" stroke-linecap="round"/></g>
+            </g>
+          </svg>
+        </div>
         <h3>Ground station automation and integration</h3>
         <p>Engineering for software integration, automated testing, diagnostics and system reliability, so stations run with fewer manual steps and fewer surprises.</p>
         <span class="status status-now">Current capability</span>
       </article>
-      <article class="focus-item">
-        <svg class="focus-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M4 26h5l3.5-9 4 14 4.5-20 3.5 15H36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="21" cy="11" r="3.25" stroke="currentColor" stroke-width="1.5"/></svg>
+      <article class="caps-card spot">
+        <div class="caps-stage" aria-hidden="true">
+          <svg class="holo holo-chart" viewBox="0 0 220 150" fill="none">
+            <g filter="url(#holo-glow)" stroke="#5FDDF0" stroke-width="1">
+              <g class="holo-bars">
+                <rect x="30" y="86" width="12" height="40" rx="6" fill="url(#holo-bar)"/>
+                <rect x="50" y="62" width="12" height="64" rx="6" fill="url(#holo-bar)"/>
+                <rect x="70" y="74" width="12" height="52" rx="6" fill="url(#holo-bar)"/>
+                <rect x="90" y="44" width="12" height="82" rx="6" fill="url(#holo-bar)"/>
+              </g>
+              <path d="M34 28h14M56 22h14M78 30h14" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
+              <g class="holo-spheres">
+                <circle cx="148" cy="80" r="34"/><ellipse cx="148" cy="80" rx="34" ry="12" opacity=".7"/><ellipse cx="148" cy="80" rx="13" ry="34" opacity=".7"/>
+                <circle cx="174" cy="92" r="24" opacity=".75"/><ellipse cx="174" cy="92" rx="24" ry="8.5" opacity=".55"/><ellipse cx="174" cy="92" rx="9" ry="24" opacity=".55"/>
+              </g>
+            </g>
+            <circle cx="161" cy="86" r="4" fill="#E9FBFF" filter="url(#holo-glow)"/>
+          </svg>
+        </div>
         <h3>AI and intelligent operations</h3>
         <p>AI assisted anomaly detection, predictive monitoring and automated workflows that help operators notice problems early and act with context.</p>
         <span class="status status-dev">In development</span>
       </article>
-      <article class="focus-item">
-        <svg class="focus-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M9.5 9.5a14 14 0 0 0 19.8 19.8L9.5 9.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19.4 19.4l7.4-7.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="28.3" cy="10.5" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M17 35h12M23 29.5V35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <article class="caps-card spot">
+        <div class="caps-stage" aria-hidden="true">
+          <svg class="holo holo-dish" viewBox="0 0 220 150" fill="none">
+            <g filter="url(#holo-glow)" stroke="#5FDDF0" stroke-width="1.1" stroke-linecap="round">
+              <g class="holo-dish-body">
+                <path d="M58 52c10 34 44 52 78 44" stroke-width="1.4"/>
+                <ellipse cx="97" cy="74" rx="44" ry="17" transform="rotate(-38 97 74)" fill="#16B8D4" fill-opacity=".06"/>
+                <path d="M80 60c8 12 20 20 34 22M70 70c12 14 28 21 46 20" opacity=".5"/>
+                <path d="M97 74l26-30M123 44l-3 0" stroke-width="1.2"/>
+                <path d="M96 90l-8 34M108 92l12 32M80 126h52" stroke-width="1.3"/>
+              </g>
+              <g class="holo-waves" opacity=".85"><path d="M140 38a18 18 0 0 1 14 14"/><path d="M146 26a32 32 0 0 1 22 24" opacity=".7"/><path d="M152 14a46 46 0 0 1 30 34" opacity=".45"/></g>
+            </g>
+            <circle cx="123" cy="44" r="3.6" fill="#E9FBFF" filter="url(#holo-glow)"/>
+          </svg>
+        </div>
         <h3>Satellite communications infrastructure</h3>
         <p>Long term exploration of commercial ground station capacity and Ground Station as a Service, pursued only with authorised operators and partners.</p>
         <span class="status status-later">Long term</span>
       </article>
     </div>
-    <p class="mt-2"><a href="/capabilities/">See capabilities in detail</a></p>
+    <p class="mt-2"><a class="caps-link" href="/capabilities/">See capabilities in detail</a></p>
   </div>
 </section>
 

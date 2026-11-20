@@ -44,6 +44,14 @@ The homepage hero is a live 3D scene: a rotating Earth with satellites in low, m
 
 Page head photos in `site/assets/img/photos/` are NASA Deep Space Network photographs from nasa.gov (public domain), credited in each caption: DSS-14 and the 70 m antenna at Goldstone, DSS-15 at Goldstone, DSS-35 and DSS-43 at Canberra. `scripts/prepare-photos.py` crops them to 4:5 and writes 1200 and 720 pixel versions. NASA imagery does not imply NASA endorsement.
 
+## Effects, founder section, FAQ and share images
+
+- `site/assets/js/effects.js` holds small effects ported from React Bits to plain JavaScript: blur text on the homepage headline (`data-blur-text`), spotlight glow on cards (`.spot`), decrypted labels (`data-decrypt`), magnetic primary buttons (`.magnet`), and a one time reveal for `data-reveal` sections. Everything is decorative, so pages read fully without it, and motion is skipped for visitors who prefer reduced motion.
+- The homepage focus cards, the footer and the About page founder section are adapted from MotionSites designs ("Capabilities", "Stark Minimal Footer", "LaunchEx About"), restyled in the Morphwaves palette. The 404 page shows a slowly turning Earth.
+- Partner FAQ: edit the `faq` list in the front matter of `site/pages/partnerships.html`. The build renders both the visible FAQ and matching FAQPage structured data from it, so they never disagree.
+- Structured data: Organization and WebSite JSON-LD are added to the homepage by `scripts/build.mjs`.
+- Share images: `python3 scripts/make-og.py` regenerates `site/assets/img/og/*.jpg`. A page picks its image with `"og": "<name>"` in its front matter.
+
 ## Editing pages
 
 Each page in `site/pages/` starts with a JSON comment holding its title, meta description and path. Header, footer and head tags live once in `site/partials/` and apply to every page. Design tokens are at the top of `site/assets/css/site.css`.

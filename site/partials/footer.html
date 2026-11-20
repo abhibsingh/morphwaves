@@ -1,32 +1,32 @@
 <footer class="site-footer">
-  <div class="wrap">
+  <div class="footer-dots" aria-hidden="true"><div class="footer-dots-line"></div></div>
+  <div class="wrap footer-inner">
     <div class="footer-top">
-      <div>
-        <a class="brand" href="/" aria-label="Morphwaves home">
-          <svg viewBox="0 0 32 32" aria-hidden="true" fill="none"><circle cx="16" cy="16" r="13" stroke="#3C5876" stroke-width="1.5"/><path d="M3.6 20.2C7.5 12.6 15.4 7.2 24.8 6.6" stroke="#16B8D4" stroke-width="2" stroke-linecap="round"/><circle cx="24.8" cy="6.6" r="2.6" fill="#16B8D4"/><path d="M10 26.5v-4.2m0 0l-2.6-2.8m2.6 2.8l2.6-2.8" stroke="#E8EEF5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Morphwaves</span>
-        </a>
-        <p>An early stage Indian venture developing software for satellite ground operations: monitoring, integration and automation, with a long term view toward ground infrastructure.</p>
-      </div>
+      <h2 class="footer-heading">Software for the ground stations that every satellite depends on.</h2>
       <nav class="footer-nav" aria-label="Footer">
-        <h2>Site</h2>
-        <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/capabilities/">Capabilities</a></li>
-          <li><a href="/groundops/">GroundOps</a></li>
-          <li><a href="/partnerships/">Partnerships</a></li>
-          <li><a href="/contact/">Contact</a></li>
-        </ul>
+        <a href="/about/">About</a>
+        <a href="/capabilities/">Capabilities</a>
+        <a href="/groundops/">GroundOps</a>
+        <a href="/partnerships/">Partnerships</a>
       </nav>
-      <div>
-        <h2>Contact</h2>
-        <p class="mt-0"><a href="mailto:{{email}}">{{email}}</a></p>
-        <p>For partnership, pilot and technical conversations.</p>
-      </div>
+      <nav class="footer-nav" aria-label="Contact">
+        <a href="/contact/">Contact form</a>
+        <a href="mailto:{{email}}">{{email}}</a>
+        <a href="/partnerships/#faq">Partner FAQ</a>
+      </nav>
+      <nav class="footer-nav" aria-label="Elsewhere">
+        <a href="{{linkedin}}" target="_blank" rel="noopener noreferrer">Founder on LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a>
+      </nav>
     </div>
-    <div class="footer-bottom">
-      <span>© {{year}} Morphwaves. All rights reserved.</span>
-      <span>Software for satellite ground operations.</span>
+    <div class="footer-brand-row">
+      <a class="footer-brand" href="/" aria-label="Morphwaves home">
+        <svg class="footer-mark" viewBox="0 0 32 32" aria-hidden="true" fill="none"><circle cx="16" cy="16" r="13" stroke="#3C5876" stroke-width="1.2"/><path d="M3.6 20.2C7.5 12.6 15.4 7.2 24.8 6.6" stroke="#16B8D4" stroke-width="1.6" stroke-linecap="round"/><circle cx="24.8" cy="6.6" r="2.4" fill="#16B8D4"/><path d="M10 26.5v-4.2m0 0l-2.6-2.8m2.6 2.8l2.6-2.8" stroke="#E8EEF5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="footer-wordmark" aria-hidden="true">Morphwaves</span>
+      </a>
+    </div>
+    <div class="footer-legal">
+      <p>© {{year}} Morphwaves. All rights reserved.</p>
+      <p>Early stage venture, building in India.</p>
     </div>
   </div>
 </footer>
