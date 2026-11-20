@@ -144,7 +144,7 @@ const ORG = {
   email: EMAIL,
   description: "Early stage Indian venture developing software for satellite ground operations: monitoring, integration and automation.",
   address: { "@type": "PostalAddress", addressCountry: "IN" },
-  founder: { "@type": "Person", name: "Abhishek Singh", jobTitle: "Founder", sameAs: ["https://www.linkedin.com/in/abhishek-s-473a27372"] },
+  founder: { "@type": "Person", name: "Abhishek Singh", jobTitle: "Founder" },
   knowsAbout: ["Satellite ground segment software", "Ground station automation", "Telemetry monitoring", "Satellite pass scheduling"],
 };
 function jsonLd(meta, canonical) {
@@ -181,7 +181,6 @@ function buildPage(file) {
     nav: navHtml(meta.nav || meta.path),
     skyplot: skyplot(),
     faq: faqHtml(meta),
-    linkedin: "https://www.linkedin.com/in/abhishek-s-473a27372",
     groundopsDiagram: read(join(SITE, "partials", "groundops-diagram.svg")),
     ...Object.fromEntries(readdirSync(join(SITE, "partials")).filter((n) => /^illus-[\w]+\.svg$/.test(n))
       .map((n) => ["illus_" + n.slice(6, -4), read(join(SITE, "partials", n))])),
